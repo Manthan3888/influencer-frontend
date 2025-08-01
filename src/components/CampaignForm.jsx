@@ -250,13 +250,13 @@
                                         </Col>
                                         <Col md={6}>
                                             {/* Right-side Fields */}
-                                            <Form.Group className="mb-3">
+                                            {/* <Form.Group className="mb-3">
                                                 <Form.Label>Influencer</Form.Label>
                                                 <Form.Control type="text" name="influencer" value={formData.influencer} onChange={handleChange} isInvalid={!!errors.influencer} />
                                                 {renderError('influencer')}
-                                            </Form.Group>
+                                            </Form.Group> */}
                                             <Form.Group className="mb-3">
-                                                <Form.Label>Followers</Form.Label>
+                                                <Form.Label>Influencer's Followers</Form.Label>
                                                 <Form.Control type="text" name="followers" value={formData.followers} onChange={handleChange} isInvalid={!!errors.followers} />
                                                 {renderError('followers')}
                                             </Form.Group>
