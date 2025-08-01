@@ -47,6 +47,10 @@ const CampaignForm = () => {
     const isEmpty = (value) => !value.trim();
     const isAlpha = (value) => /^[a-zA-Z\s]+$/.test(value);
     const isNumeric = (value) => /^\d+$/.test(value);
+    const isAlphaNumeric = (value) => /^[a-zA-Z0-9\s]+$/.test(value);
+
+    const toTitleCase = (str) =>
+        str.replace(/([A-Z])/g, ' $1').replace(/^./, (char) => char.toUpperCase());
 
     const validateTextField = (value, fieldName, errors) => {
         if (isEmpty(value)) {
@@ -68,8 +72,11 @@ const CampaignForm = () => {
         }
     };
 
-    const toTitleCase = (str) => str.replace(/([A-Z])/g, ' $1')
-        .replace(/^./, (char) => char.toUpperCase());
+    const validateAlphaNumericField = (value, fieldName, errors) => {
+        if (value && !isAlphaNumeric(value)) {
+            errors[fieldName] = `${toTitleCase(fieldName)} must contain only letters and numbers.`;
+        }
+    };
 
     const validateForm = () => {
         let formErrors = {};
@@ -81,10 +88,12 @@ const CampaignForm = () => {
 
         // Optional text fields
         validateOptionalTextField(formData.niche, 'niche', formErrors);
-        validateOptionalTextField(formData.influencer, 'influencer', formErrors);
 
-        // Numeric fields
-        validateNumericField(formData.budget, 'budget', formErrors);
+        // Mixed alphanumeric fields
+        validateAlphaNumericField(formData.budget, 'budget', formErrors);
+        validateAlphaNumericField(formData.influencer, 'influencer', formErrors);
+
+        // Numeric
         validateNumericField(formData.followers, 'followers', formErrors);
 
         // Dates
@@ -95,6 +104,7 @@ const CampaignForm = () => {
         setErrors(formErrors);
         return Object.keys(formErrors).length === 0;
     };
+
 
 
     const handleSubmit = async (e) => {
@@ -281,7 +291,7 @@ const CampaignForm = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Label>Start Date</Form.Label>
                                             <Form.Control
-                                                type="datetime-local"
+                                                type="date"
                                                 name="startDate"
                                                 value={formData.startDate}
                                                 onChange={handleChange}
@@ -291,7 +301,7 @@ const CampaignForm = () => {
                                         <Form.Group className="mb-3">
                                             <Form.Label>End Date</Form.Label>
                                             <Form.Control
-                                                type="datetime-local"
+                                                type="date"
                                                 name="endDate"
                                                 value={formData.endDate}
                                                 onChange={handleChange}
