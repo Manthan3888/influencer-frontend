@@ -151,7 +151,7 @@ const CampaignForm = () => {
         <div className="bg-image py-5">
             <Container>
                 <Row className="main justify-content-between">
-                    <Col md={2} className='left_side position-relative p-0'>
+                    <Col xl={2} className='left_side d-none d-xl-block position-relative p-0'>
                         <img src={icon} alt='item' className='left_image' />
                         <div className='caption position-absolute top-0 p-5 bg-dark bg-opacity-50 text-white text-justify rounded'>
                             <h1 className='text-center'>Caption</h1>
@@ -170,7 +170,7 @@ const CampaignForm = () => {
                             </ul>
                         </div>
                     </Col>
-                    <Col md={8}>
+                    <Col xl={8}>
                         <div className="card_form p-4 rounded shadow-lg card-style">
                             <h3 className="mb-4 text-center heading">Campaign Details</h3>
                             <Form onSubmit={handleSubmit}>

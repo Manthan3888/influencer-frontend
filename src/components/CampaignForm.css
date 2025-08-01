@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Global Reset */
 * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -19,9 +20,9 @@ body {
   margin-bottom: 20px;
 }
 
-/* Background Image */
+/* Background Section */
 .bg-image {
-  background-image: url('../assets/bg.jpg'); /* Ensure correct path */
+  background-image: url('../assets/bg.jpg'); /* Adjust path as needed */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -37,88 +38,36 @@ body {
   padding: 30px;
 }
 
-/* Form Elements */
-form input[type="text"],
-form input[type="number"],
-form input[type="datetime-local"],
-form textarea,
-form select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
+/* Left Side Content: Hidden by default */
+.left-side {
+  display: none;
 }
 
-form input:hover,
-form textarea:hover,
-form select:hover {
-  background-color: #f5f7fa;
-  border-color: #4b7bec;
-  box-shadow: 0 0 8px rgba(75, 123, 236, 0.2);
+/* Show only on xl and above (≥ 1200px) */
+@media (min-width: 1200px) {
+  .left-side {
+    display: block;
+  }
+
+  .left_image {
+    width: 350px;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+
+  .caption {
+    text-align: justify;
+    width: 350px;
+    height: 100%;
+    color: #444;
+  }
 }
 
-form input:focus,
-form textarea:focus,
-form select:focus {
-  outline: none;
-  border-color: #4b7bec;
-  box-shadow: 0 0 5px rgba(75, 123, 236, 0.4);
-}
-
-/* Checkbox Styling */
-.form-check {
-  margin-bottom: 12px;
-}
-
-.form-check-input {
-  margin-right: 8px;
-}
-
-.form-check-label:hover {
-  cursor: pointer;
-  color: #4b7bec;
-}
-
-/* Button Styling */
-.btn-custom {
-  background-color: #4b7bec;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
-}
-
-.btn-custom:hover {
-  background-color: #ffdcda;
-  color: black;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(56, 103, 214, 0.3);
-}
-
-/* Left Section Image */
-.left_image {
-  width: 350px;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.8;
-}
-
-.caption {
-  width: 350px;
-  height: 100%;
-  text-align: justify;
-}
-
-/* Validation/Error Messages */
+/* Error Message */
 .error {
   color: #e74c3c;
   font-size: 0.9rem;
   margin-top: -8px;
   margin-bottom: 10px;
 }
-
