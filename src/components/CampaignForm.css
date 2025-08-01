@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fb;
+}
+
+/* Typography */
+.heading {
+  color: #4b7bec;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Background Image */
+.bg-image {
+  background-image: url('../assets/bg.jpg'); /* Ensure correct path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+/* Card Styling */
+.card-style {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+/* Form Elements */
+form input[type="text"],
+form input[type="number"],
+form input[type="datetime-local"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+form input:hover,
+form textarea:hover,
+form select:hover {
+  background-color: #f5f7fa;
+  border-color: #4b7bec;
+  box-shadow: 0 0 8px rgba(75, 123, 236, 0.2);
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  outline: none;
+  border-color: #4b7bec;
+  box-shadow: 0 0 5px rgba(75, 123, 236, 0.4);
+}
+
+/* Checkbox Styling */
+.form-check {
+  margin-bottom: 12px;
+}
+
+.form-check-input {
+  margin-right: 8px;
+}
+
+.form-check-label:hover {
+  cursor: pointer;
+  color: #4b7bec;
+}
+
+/* Button Styling */
+.btn-custom {
+  background-color: #4b7bec;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.btn-custom:hover {
+  background-color: #ffdcda;
+  color: black;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(56, 103, 214, 0.3);
+}
+
+/* Left Section Image */
+.left_image {
+  width: 350px;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.caption {
+  width: 350px;
+  height: 100%;
+  text-align: justify;
+}
+
+/* Validation/Error Messages */
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: -8px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 20px;
+  }
+  .main {
+    justify-content: space-between;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 13px;
+  }
+
+  
+}
+
+@media (max-width: 768px) {
+  .card_form{
+    width: 100%;
+    height: auto;
+  }
+
+  .left_side {
+    display: none;
+  }
+
+  .heading {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 14px;
+  }
+
+  .btn-custom {
+    width: 100%;
+  }
+}
+
+/* Optional: Extra small devices */
+@media (max-width: 576px) {
+  .heading {
+    font-size: 20px;
+  }
+  .left_side {
+    display: none;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 13px;
+  }
+
+  .card-style {
+    padding: 15px;
+  }
+}
