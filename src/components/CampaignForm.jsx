@@ -3,6 +3,9 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './CampaignForm.css';
 import icon from '../assets/icon.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const CampaignForm = () => {
     const [formData, setFormData] = useState({
@@ -110,13 +113,14 @@ const CampaignForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateForm()) {
+            toast.error("Please Fix the Validation Errors.");
             return;
         }
 
         try {
             const response = await axios.post('https://n8n.srv903939.hstgr.cloud/webhook/d9e67f53-dbf7-4886-946d-ba1c51553e99', formData);
             if (response.status === 201 || response.status === 200) {
-                alert('Form submitted successfully!');
+                toast.success('Campaign Added Successfully!');
                 setFormData({
                     campaignName: '',
                     campaignType: '',
@@ -139,7 +143,7 @@ const CampaignForm = () => {
                 setErrors({});
             }
         } catch (error) {
-            alert('There was an error submitting the form.');
+            toast.error('There was an error submitting the Campaign Form.');
             console.error(error);
         }
     };
@@ -345,6 +349,7 @@ const CampaignForm = () => {
                     </Col>
                 </Row>
             </Container>
+            <ToastContainer position="top-right" autoClose={3000} />
         </div >
     );
 };
