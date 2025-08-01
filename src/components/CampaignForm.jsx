@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './CampaignForm.css';
-import icon from '../assets/icon.png';
+import icon from '../assets/icon.jpeg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -130,7 +130,7 @@ const CampaignForm = () => {
             });
 
             const response = await axios.post(
-                'https://n8n.srv903939.hstgr.cloud/webhook-test/d9e67f53-dbf7-4886-946d-ba1c51553e99',
+                'https://n8n.srv903939.hstgr.cloud/webhook/d9e67f53-dbf7-4886-946d-ba1c51553e99',
                 data,
                 {
                     headers: {
