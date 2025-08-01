@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './CampaignForm.css';
@@ -29,6 +29,7 @@ const CampaignForm = () => {
     });
 
     const [errors, setErrors] = useState({});
+    const fileInputRef = useRef(null);
 
     const handleChange = (e) => {
         const { name, value, checked, type, files } = e.target;
@@ -167,6 +168,10 @@ const CampaignForm = () => {
             toast.error('There was an error submitting the Campaign Form.');
             console.error(error);
         }
+
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
     };
 
     const renderError = (field) =>
@@ -268,10 +273,16 @@ const CampaignForm = () => {
                                             <Form.Label>Notes</Form.Label>
                                             <Form.Control as="textarea" name="notes" rows={3} value={formData.notes} onChange={handleChange} />
                                         </Form.Group>
-                                        {/* ✅ New File Field */}
                                         <Form.Group className="mb-3">
                                             <Form.Label>Upload Attachment</Form.Label>
-                                            <Form.Control type="file" name="attachment" accept=".jpg,.jpeg,.png,.pdf,.csv" onChange={handleChange} isInvalid={!!errors.attachment} />
+                                            <Form.Control
+                                                type="file"
+                                                name="attachment"
+                                                accept=".jpg,.jpeg,.png,.pdf,.csv"
+                                                onChange={handleChange}
+                                                isInvalid={!!errors.attachment}
+                                                ref={fileInputRef} // Step 2: Attach ref to input
+                                            />
                                             {renderError('attachment')}
                                         </Form.Group>
                                         <Button type="submit" className="btn-custom w-100">Submit Campaign</Button>
