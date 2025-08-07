@@ -2,7 +2,7 @@ import React, { useState,useRef } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './CampaignForm.css';
-import icon from '../assets/icon.png';
+import icon from '../assets/bg.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -141,6 +141,7 @@ const CampaignForm = () => {
             );
 
             if (response.status === 200 || response.status === 201) {
+                console.log('Campaign received Successfully');
                 toast.success('Campaign Added Successfully!');
                 setFormData({
                     campaignName: '',
@@ -164,6 +165,9 @@ const CampaignForm = () => {
                 });
                 setErrors({});
             }
+            else{
+                console.log('Campaign is not received Successfully');
+            };
         } catch (error) {
             toast.error('There was an error submitting the Campaign Form.');
             console.error(error);
@@ -176,6 +180,7 @@ const CampaignForm = () => {
 
     const renderError = (field) =>
         errors[field] ? <div className="text-danger small mt-1">{errors[field]}</div> : null;
+    
 
     return (
         <div className="bg-image py-5">
@@ -184,7 +189,7 @@ const CampaignForm = () => {
                     <Col xl={2} className='left_side d-none d-xl-block position-relative p-0'>
                         <img src={icon} alt='item' className='left_image' />
                         <div className='caption position-absolute top-0 p-5 bg-dark bg-opacity-50 text-white text-justify rounded'>
-                            <h1 className='text-center'>Campaign Caption</h1>
+                            <h1 className='text-center'>Campaign</h1>
                             <p>A marketing campaign is a coordinated series of actions, messages, or promotions with a clear goal—such as increasing brand awareness, launching a product, or driving sales. It’s like a story a brand tells across different platforms.</p>
                             <ul>
                                 <li>Clear Objective</li>
