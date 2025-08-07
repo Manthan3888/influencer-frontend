@@ -165,10 +165,8 @@ const CampaignForm = () => {
                 });
                 setErrors({});
             }
-            else{
-                console.log('Campaign is not received Successfully');
-            };
         } catch (error) {
+            console.log('Campaign is not received Successfully');
             toast.error('There was an error submitting the Campaign Form.');
             console.error(error);
         }
